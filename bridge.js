@@ -47,6 +47,9 @@ controlpage.onCallback = function (request) {
 			var success = phantom.injectJs(request[3]);
 			respond([0,cmdId,'jsInjected',success]);
 			break;
+		case 'clearCookies':
+			phantom.clearCookies();
+			response([0,cmdId,'cookiesCleared']);
         case 'addCookie':
             phantom.addCookie(request[3]);
             respond([0,cmdId,'cookieAdded',success]);

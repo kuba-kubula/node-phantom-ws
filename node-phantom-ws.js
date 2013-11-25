@@ -250,6 +250,7 @@ module.exports = {
                             case 'pageSetFnDone':
 		                    case 'pageJsIncluded':
 		                    case 'cookieAdded':
+                        case 'cookiesCleared':
 		                    case 'pageRendered':
 		                    case 'pageSwitchToFrameDone':
 		                    case 'pageSwitchToMainFrameDone':
@@ -292,7 +293,10 @@ module.exports = {
 	                    },
 	                    addCookie: function(cookie, callback){
 	                        request([0,'addCookie', cookie], callbackOrDummy(callback));
-	                    },                 
+	                    },
+                      clearCookies: function(callback){
+                          request([0,'clearCookies'], callbackOrDummy(callback));
+                      },
 	                    exit: function(callback){
 	                        request([0,'exit'], callbackOrDummy(callback));
 	                        phantom.kill('SIGTERM');
